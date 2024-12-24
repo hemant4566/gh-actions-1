@@ -4,7 +4,7 @@ on: push
 
 jobs:
     first_job:
-        runs-on: ubuntu-latesh
+        runs-on: ubuntu
         steps:
             - name: welcome page
               run: echo " mu first github actionjob"
