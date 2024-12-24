@@ -1,0 +1,14 @@
+name:  Myfirst workflow
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latesh
+        steps:
+            - name: welcome page
+              run: echo " mu first github actionjob"
+            - name: list files
+              run: ls
+
+
