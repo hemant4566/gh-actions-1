@@ -12,9 +12,9 @@ jobs:
         run: echo "My first GitHub Actions job"
       - name: multiline
         run: |
-        echo " this is multi line "
-        ls -lst
-        cat read.me
+          echo  "this is multi line"
+          ls -lst
+          cat read.me
       - name: generate ASCII artwork
         run: cowsay -f pum " is not a brand" >> pum.txt
 
