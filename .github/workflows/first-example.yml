@@ -14,7 +14,7 @@ jobs:
         run: |
           echo  "this is multi line"
           ls -lst
-          cat read.me
+          cat readme.md
       - name: generate ASCII artwork
         run: cowsay -f pum " is not a brand" >> pum.txt
 
