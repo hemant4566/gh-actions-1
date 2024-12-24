@@ -1,14 +1,14 @@
-name:  Myfirst workflow
+name: MyFirstWorkflow
 
 on: push
 
 jobs:
-    first_job:
-        runs-on: ubuntu
-        steps:
-            - name: welcome page
-              run: echo " mu first github actionjob"
-            - name: list files
-              run: ls
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome Page
+        run: echo "My first GitHub Actions job"
+      - name: List Files
+        run: ls
 
 
