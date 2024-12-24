@@ -15,7 +15,12 @@ jobs:
           echo  "this is multi line"
           ls -lst
           cat README.md
-      - name: generate ASCII artwork
-        run: cowsay -f pum " is not a brand" >> pum.txt
+      - name: Install cowsay
+        run: sudo apt-get update && sudo apt-get install -y cowsay
+      - name: Generate ASCII Artwork
+        run: |
+          echo "is not a brand" | cowsay -f tux >> pum.txt
+      - name: Display Generated File
+        run: cat pum.txt
 
 
