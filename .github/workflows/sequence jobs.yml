@@ -3,7 +3,7 @@ name: sq-workflow
 on: push
 
 jobs:
-  Build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
@@ -18,7 +18,7 @@ jobs:
       - name: Display Generated File
         run: cat dragon.txt
   stage2:
-    needs: Build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: sleep for 10 seconds
@@ -27,7 +27,7 @@ jobs:
       - name: test file exists
         run: grep -i "dragon" dragon.txt
   stage3:
-    needs: [Build,stage2]
+    needs: [build,stage2]
     runs-on: ubuntu-latest
     steps:
     
