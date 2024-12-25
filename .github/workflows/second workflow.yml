@@ -1,24 +1,19 @@
-name: MyFirstWorkflow
+name: ASCILL_job
 
 on: push
 
 jobs:
-  first_job:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
         uses: actions/checkout@v4.2.2
-      - name: Welcome Page
-        run: echo "My first GitHub Actions job"
-      - name: multiline
-        run: |
-          echo  "this is multi line"
-          ls -lst
-          cat README.md
+      
       - name: Install cowsay
         run: sudo apt-get update && sudo apt-get install -y cowsay
       - name: Generate ASCII Artwork
-        run: |
-          echo "is not a brand" | cowsay -f tux >> pum.txt
+        run: cowsay -f dragon "always state away , iam a dragon" >> dragon.txt
+      - name: test  File exsit 
+        run: grep -i  "dragon" dragon.txt
       - name: Display Generated File
-        run: cat pum.txt
+        run: cat dragon.txt
