@@ -17,7 +17,7 @@ jobs:
         run: grep -i  "dragon" dragon.txt
       - name: Display Generated File
         run: cat dragon.txt
- stage2:
+  stage2:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +26,7 @@ jobs:
       
       - name: test file exists
         run: grep -i "dragon" dragon.txt
- stage3:
+  stage3:
     needs: [build,stage2]
     runs-on: ubuntu-latest
     steps:
