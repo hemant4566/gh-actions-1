@@ -1,0 +1,46 @@
+name: sharing b/w stages
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4.2.2
+      
+      - name: Install cowsay
+        run: sudo apt-get update && sudo apt-get install -y cowsay
+      - name: Generate ASCII Artwork
+        run: cowsay -f dragon "always state away , iam a dragon" >> dragon.txt
+      - name: test  File exsit 
+        run: grep -i  "dragon" dragon.txt
+      - name: Display Generated File
+        run: cat dragon.txt
+      - name: upload dargon.txt
+        uses: actions/upload-artifact@v3
+        with:
+            name: drag-test-file
+            path: dragon.txt
+  stage2:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: upload dargon.txt
+        uses: actions/download-artifact@v3
+        with:
+            name: drag-test-file
+      - name: test file exists
+        run: grep -i "dragon" dragon.txt
+  stage3:
+    needs: [build, stage2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: upload dargon.txt
+        uses: actions/download-artifact@v3
+        with:
+            name: drag-test-file
+      
+      - name:  file exists
+        run: cat dragon.txt
+      
